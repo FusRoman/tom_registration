@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 
 from tom_common.forms import CustomUserCreationForm
+from django.contrib.auth.models import Group
 
 
 class RegistrationApprovalForm(CustomUserCreationForm):
