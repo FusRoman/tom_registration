@@ -3,7 +3,10 @@ from django.contrib.auth.forms import AuthenticationForm
 
 from tom_common.forms import CustomUserCreationForm
 from django.contrib.auth.models import Group
+import logging
 
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 
 class RegistrationApprovalForm(CustomUserCreationForm):
     """
@@ -38,9 +41,9 @@ class ApproveUserForm(CustomUserCreationForm):
 
         # --- modification from orginal ---
         # put the user in the public group
-        print()
-        print(commit)
-        print()
+        logging.debug()
+        logging.debug(commit)
+        logging.debug()
         public_group, _ = Group.objects.get_or_create(name="Public")
         user.groups.add(public_group)
 
