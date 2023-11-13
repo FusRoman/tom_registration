@@ -38,6 +38,9 @@ class ApproveUserForm(CustomUserCreationForm):
 
         # --- modification from orginal ---
         # put the user in the public group
+        print()
+        print(commit)
+        print()
         public_group, _ = Group.objects.get_or_create(name="Public")
         user.groups.add(public_group)
 
